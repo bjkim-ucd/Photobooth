@@ -26,3 +26,5 @@ Then go to a web browser and go to
 ```bash
 localhost:10371/photobooth.html
 ```
+
+Currently, the tag recognition feature does not work. When uploading a photo and asked if you want to apply tag recognition, click "No."
