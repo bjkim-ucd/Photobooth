@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width">
+
+        <title>Photobooth</title>
+
+        <link rel = "stylesheet" type = "text/css" href = "reset.css">
+        <link rel = "stylesheet" type = "text/css" href = "photobooth.css">
+    </head>
+
+    <body>
+        <h1>Photobooth.</h1>
+        <div id = "resultsTag"></div>
+
+        <main>
+            <div id = "photoAlbum"></div>
+
+            <div id = "sidebar">
+                <div id = "mobile">
+                    <div id = "mobileUpload" class = "upload" onclick = "showUpload(1)">
+                        <img src = "photobooth/uploadIcon-01.png" id = "mobileUploadIcon" class = "sidebarIcon" />
+                        <div class = "desktopText">upload</div>
+                    </div>
+
+                    <div id = "mobileSearchTag" class = "searchTag" onclick = "showFilter(1)">
+                        <img class = "sidebarIcon" src = "photobooth/filterIcon-01.png"/>
+                        <div class = "desktopText">filter</div>
+                    </div>
+
+                    <div id = "mobileFavorites">
+                        <img class = "sidebarIcon"  id = "mobileFavIcon" src = "photobooth/favoritesIcon.png"/>
+                        <div class = "desktopText">favorites</div>
+                    </div>
+                </div>
+
+                <div id = "upload" onclick = "showUpload(1)">
+                    <img src = "photobooth/uploadIcon-01.png" id = "uploadIcon" class = "sidebarIcon" />
+                    <div class = "desktopText">upload</div>
+                </div>
+
+                <div id = "shownUpload">
+                    <input type = "file" id = "fileSelector">
+                    <button id = "uploadButton" onclick = "uploadFile()">upload</button>
+                    <div id = "tagRecognition">Apply Tag Recognition?
+                        <div class = "tagRecognitionChoice" onclick = "tagRecognition('blank', 1)">Yes</div>
+                        <div class = "tagRecognitionChoice" onclick = "tagRecognition('blank', 0)">No</div>
+                    </div>
+                </div>
+
+                <div id = "searchTag" onclick = "showFilter(1)">
+                    <img class = "sidebarIcon" src = "photobooth/filterIcon-01.png"/>
+                    <div class = "desktopText">filter</div>
+                </div>
+
+                <div id = "shownFilter">
+                    <input type = "text" id = "searchTagInput" placeholder = "tag" onkeypress = "return enterInputTagSearch(event)">
+                    <div id = "filterButtons">
+                        <button id = "filterButton" onclick = "inputTagSearch()">Enter</button>
+                        <button id = "clearfilterButton" onclick = "clearFilter()">Clear Filter</button>
+                    </div>
+                </div>
+
+                <div id = "favorites" onclick = "loadFav()">
+                    <img class = "sidebarIcon" src = "photobooth/favoritesIcon.png"/>
+                    <div class = "desktopText">favorites</div>
+                </div>
+
+                <div id = "favMenu">
+                    <div id = "favButton">
+                        <button onclick = "favToHome()">Back to Homepage</button>
+                    </div>
+                </div>
+            </div> <!-- id = "sidebar" -->
+        </main>
+
+        <script src = "photobooth.js"></script>
+    </body>
+</html>

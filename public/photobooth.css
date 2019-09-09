@@ -1,0 +1,423 @@
+@font-face
+{
+    font-family: Dani; /*a name to be used later*/
+    src: url('/photobooth/fontGoudy/GoudyStd-Bold.otf'); /*URL to font*/
+}
+
+/* make all fonts the same */
+html *
+{
+    font-family: Dani !important;
+}
+
+body
+{
+     display: flex;
+     min-height: 8vh;  /* need this line to tell body to fill viewport */
+     flex-direction: column;
+     font-size: large;
+     align-items: center;
+}
+
+main
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+}
+
+h1
+{
+    color: #885544;
+    font-size: 100px;
+    align-self: flex-start;
+    padding: 50px;
+}
+
+#resultsTag
+{
+    color: #885544;
+    font-size: x-large;
+    padding: 20px;
+}
+
+#fileSelector
+{
+    background: #885544;
+    color: white;
+    font-size: small;
+    margin: 30px;
+    padding: 30px;
+}
+
+#tagRecognition
+{
+    display: none;
+    background: #998877;
+    color: white;
+    font-family: 'Dani';
+    border: solid;
+    border-color: black;
+    align-content: center;
+    font-size: xx-large;
+    flex-direction: column;
+    text-align: center;
+}
+
+.tagRecognitionChoice
+{
+    align-self: center;
+    text-align: center;
+    border:solid;
+    margin: 5px;
+}
+
+#uploadButton
+{
+    background: #885544;
+    color: white;
+    font-size: small;
+    border-style: solid;
+    margin: 30px;
+}
+
+#sidebar
+{
+    background: #885544;
+    display:flex;
+    flex-direction: column;
+    display: inline-block;
+    width: 280px;
+    max-width: 280px;
+}
+
+.desktopText
+{
+    color: white;
+    font-size: 35px;
+}
+
+#upload, #searchTag, #favorites
+{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+#uploadIcon
+{
+    width: 50px;
+    height: 50px;
+}
+
+.sidebarIcon
+{
+    width: 50px;
+}
+
+#searchTagInput
+{
+    height: 40px;
+    font-size: 35px;
+    color: #885544;
+    width: 90%;
+    margin: 10px;
+}
+
+#filterButtons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#filterButton, #clearfilterButton
+{
+    margin: 10px;
+}
+
+#photoAlbum
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* to make images display most recently added first */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: 2px;
+    border-style: solid;
+    border-color: #885544;
+    margin-left: 25px;
+}
+
+.flexy
+{
+    margin: 10px;
+    display: inline-block;
+    width: 280px;
+    max-width: 280px;
+
+    border-style: solid;
+    align-content: flex-end;
+    position: relative; /* needed to make hamburger display in image */
+}
+
+input[type="file"]
+{
+    font-size: large;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+}
+
+#shownUpload, #shownFilter, #favMenu
+{
+    display: none;
+    flex-direction: column;
+    background: rgb(207,187,178);
+}
+
+#flexyTheImage
+{
+    margin: 10px;
+    display: flex; /* only show when an image is uploading */
+    flex-direction: column;
+    max-width: 300px;
+    max-height: 350px;
+    min-height: 10px;
+    border-style: solid;
+    align-content: flex-end;
+    flex:1;
+    position: relative;
+}
+
+#theImage
+{
+    margin: 10px;
+    max-width:300px;
+    max-height: 350px;
+    min-height: 200px;
+    background: #998877;
+    border-style: solid;
+    transition-timing-function: ease;
+    transition-property: all;
+    transition-duration: 3s;
+    transition: opacity 4s;
+    opacity:0.3;
+    position: relative;
+}
+
+img
+{
+    display: inline;
+    position: relative;
+}
+
+.imageContainer
+{
+    display: inline;
+    position: relative;
+    width: 100%;
+}
+
+.imageDiv
+{
+    display: inline;
+    position: relative;
+    height: 250px;
+    width: 100%;
+
+}
+
+.imgOptionsDiv
+{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.imgOptionsButton, .labelAddButton, button
+{
+    border-width:.5px;
+    border-color: black;
+    background-color: #885544;
+    font-size: 20px;
+    padding: 5px;
+    text-align: left;
+    color: white;
+}
+
+.imgMenu
+{
+    display: none;
+    flex-direction: column;
+}
+
+.burgerImageDiv
+{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0);
+}
+
+#burgerMenu
+{
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.labelBox
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: white;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.tag
+{
+    margin: 5px 15px 5px 15px;
+    background: rbga(0,0,0,0);
+    color: black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cross_Image
+{
+    display: none;
+    max-height: 15px;
+    max-width: 15px;
+    margin-right: 3px;
+}
+
+.labelInputDiv
+{
+    display: none;
+    width: 100%;
+    background-color: white;
+}
+
+.labelInput
+{
+    width: 100%;
+}
+
+*, *:before, *:after
+{
+    box-sizing: inherit;
+}
+
+#mobile
+{
+    display: none;
+    flex-direction: row;
+}
+
+#favButton
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+@media (max-width: 600px)
+{
+    #sidebar
+    {
+        background: white;
+        display:flex;
+        flex-direction: column;
+        align-self: flex-end;
+        min-height: 100px;
+        min-width: 90vw;
+    }
+
+    input.fileSelector
+    {
+        background:#885544;
+        color: white;
+        display:none;
+        font-size: small;
+        max-width: 30px;
+        margin: 10px;
+    }
+
+    button.uploadButton
+    {
+        background:#885544;
+        color: white;
+
+        margin:10px;
+    }
+
+    #photoAlbum
+    {
+        display: flex;
+        flex-direction: row-reverse; /* to make images display most recently added first */
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    main
+    {
+        display:flex;
+        flex-direction: column-reverse;
+    }
+
+    #mobile
+    {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+
+     #mobileUpload, #mobileSearchTag
+     {
+         width: 50px;
+         height: 50px;
+         align-self: center;
+         margin-left: 20px;
+         margin-right: 20px;
+     }
+
+    #mobileFavIcon
+    {
+        width: 43px;
+        height:auto;
+        align-self: center;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .desktopText
+    {
+        display: none;
+    }
+
+    #upload, #searchTag, #favorites
+    {
+        display: none;
+    }
+
+    div#flexyTheImage
+    {
+        display: none;
+        background: white;
+    }
+    h1
+    {
+        font-size: 80px;
+        align-self: center;
+    }
+} /* @media */
